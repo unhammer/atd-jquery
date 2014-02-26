@@ -19,5 +19,7 @@ if which jsmin 1>/dev/null 2>/dev/null; then
 	jsmin <scripts/jquery.atd.js.tmp >scripts/jquery.atd.js
 	rm -f scripts/jquery.atd.js.tmp
 
+	jsmin <src/jquery-1.4.2.js >scripts/jquery-1.4.2.js
+
 	jsmin <src/csshttprequest.js >scripts/csshttprequest.js
 fi
