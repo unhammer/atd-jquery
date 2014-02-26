@@ -17,8 +17,8 @@
 var AtD = 
 {
 	rpc : '', /* see the proxy.php that came with the AtD/TinyMCE plugin */
-	rpc_css : 'http://www.polishmywriting.com/atd-jquery/server/proxycss.php?data=', /* you may use this, but be nice! */
-	rpc_css_lang : 'en',
+	rpc_css : 'https://gamma.kaldera.no/demo-modal/server/proxycss.php?data=',
+	rpc_css_lang : 'nn',
 	api_key : '',
 	i18n : {},
 	listener : {}
@@ -120,7 +120,7 @@ AtD.check = function(container_id, callback_f) {
 
 	jQuery.ajax({
 		type : "POST",
-		url : AtD.rpc + '/checkDocument',
+		url : AtD.rpc + '/checkDocument/',
 		data : 'key=' + AtD.api_key + '&data=' + text,
 		format : 'raw', 
 		dataType : (jQuery.browser.msie) ? "text" : "xml",
