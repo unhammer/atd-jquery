@@ -26,9 +26,10 @@ function AtD_http_post($request, $host, $path, $port = 80)
    $http_request .= "\r\n";
    $http_request .= $request;
 
-   $response = '';                 
-   if( false != ( $fs = @fsockopen($host, $port, $errno, $errstr, 10) ) ) 
-   {                 
+   $response = '';
+   $ssl = $port == 443 ? "ssl://" : "";
+   if( false != ( $fs = @fsockopen($ssl.$host, $port, $errno, $errstr, 10) ) )
+   {
       fwrite($fs, $http_request);
 
       while ( !feof($fs) )
@@ -36,16 +37,17 @@ function AtD_http_post($request, $host, $path, $port = 80)
           $response .= fgets($fs);
       }
       fclose($fs);
-      $response = explode("\r\n\r\n", $response, 2);
+      $data = explode("\r\n\r\n", $response, 2);
    }
-   return $response;
+   else{
+      $data = array("","<!-- Error: proxy timed out -->");
+   }
+   return $data;
 }
 
 require("cssencode.php");
 
-$host = 'gamma.kaldera.no';
-
-$data = AtD_http_post(str_replace("\\'", "'", $postText), $host, $url);
+$data = AtD_http_post(str_replace("\\'", "'", $postText), "localhost", $url, 443);
 header("Content-Type: text/css");
 echo encode_css($data[1]);
 ?>

@@ -9,6 +9,7 @@ require_once('/var/www-ssl/auth/basicauth.php');
 // your key when they do View -> Source.  
 $API_KEY = "";
 
+$postText = "";
 if ( $_SERVER['REQUEST_METHOD'] === 'POST' )
 {
    $postText = trim(file_get_contents('php://input'));
@@ -22,7 +23,9 @@ if (strcmp($API_KEY, "") != 0)
 // I am a vampire
 // I have lost my fangs
 
-$url = $_GET['url'];
+$url = $_GET['url'].'/';
+$lang = $_GET['lang'];
+$postText .= '&lang=' . $lang;
 
 /* this function directly from akismet.php by Matt Mullenweg.  *props* */
 function AtD_http_post($request, $host, $path, $port = 80) 
@@ -33,11 +36,12 @@ function AtD_http_post($request, $host, $path, $port = 80)
    $http_request .= "Content-Length: " . strlen($request) . "\r\n";
    $http_request .= "User-Agent: AtD/0.1\r\n";
    $http_request .= "\r\n";
-   $http_request .= $request;            
+   $http_request .= $request;
 
-   $response = '';                 
-   if( false != ( $fs = @fsockopen($host, $port, $errno, $errstr, 10) ) ) 
-   {                 
+   $response = '';
+   $ssl = $port == 443 ? "ssl://" : "";
+   if( false != ( $fs = @fsockopen($ssl.$host, $port, $errno, $errstr, 10) ) )
+   {
       fwrite($fs, $http_request);
 
       while ( !feof($fs) )
@@ -45,9 +49,12 @@ function AtD_http_post($request, $host, $path, $port = 80)
           $response .= fgets($fs);
       }
       fclose($fs);
-      $response = explode("\r\n\r\n", $response, 2);
+      $data = explode("\r\n\r\n", $response, 2);
    }
-   return $response;
+   else{
+      $data = array("","<!-- Error: proxy timed out -->");
+   }
+   return $data;
 }
 
 // So I'm sad and I feel lonely
@@ -56,7 +63,7 @@ function AtD_http_post($request, $host, $path, $port = 80)
 // So I'm so no more sad and
 // Ache yeah yeah
 
-$data = AtD_http_post($postText, "gamma.kaldera.no", $url);
+$data = AtD_http_post($postText, "localhost", $url, 443);
 
 // I am a vampire and I am looking in the city
 // Pretty girls don't look at me
