@@ -17,7 +17,7 @@
 var AtD = 
 {
 	rpc : '', /* see the proxy.php that came with the AtD/TinyMCE plugin */
-	rpc_css : 'https://gamma.kaldera.no/demo-modal/server/proxycss.php?data=',
+	rpc_css : 'https://89.105.33.188/demo-modal/server/proxycss.php?data=',
 	rpc_css_lang : 'nn',
 	api_key : '',
 	i18n : {},
