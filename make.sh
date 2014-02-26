@@ -22,4 +22,7 @@ if which jsmin 1>/dev/null 2>/dev/null; then
 	jsmin <src/jquery-1.4.2.js >scripts/jquery-1.4.2.js
 
 	jsmin <src/csshttprequest.js >scripts/csshttprequest.js
+
+	jsmin <src/locale-nn_NO.js >scripts/locale-nn_NO.js
+	jsmin <src/locale-nb_NO.js >scripts/locale-nb_NO.js
 fi
