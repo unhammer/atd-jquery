@@ -72,5 +72,12 @@ Det er både bra å dårlig.</textarea>
 
 <p><img src="images/atdbuttontr.gif"><a href="javascript:check()" id="checkLink">Sjekk grammatikken</a></p>
 
+<p>Sjå òg:
+  <ul>
+    <li><a href="nn.php">nynorsk</a></li>
+    <li><a href="bookmarklet.html">bookmarklets</a></li>
+  </ul>
+</p>
+
  </body>
 </html>
