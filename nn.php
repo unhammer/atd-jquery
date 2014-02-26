@@ -71,7 +71,7 @@ Den er lett å sei for deg og i den tilstand er ikkje ei gong din tvil nok.</tex
 
 <p><img src="images/atdbuttontr.gif"><a href="javascript:check()" id="checkLink">Sjekk grammatikken</a></p>
 
-<p>Sjå òg:
+<p style="clear:both">Sjå òg:
   <ul>
     <li><a href="nb.php">bokmål</a></li>
     <li><a href="bookmarklet.html">bookmarklets</a></li>
