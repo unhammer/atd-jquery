@@ -9,102 +9,102 @@
 <ul>
 <li>Bookmarklet for bokmål:
 <a href="javascript:(function() {
-	if (typeof AtD != 'undefined') {
-		AtD.rpc_css_lang = 'nb';
-                return;
+    if (typeof AtD != 'undefined') {
+        AtD.rpc_css_lang = 'nb';
+        return;
+    }
+
+    var loadresource = function(tag, link, type, breakc) {
+        var d = new Date();
+        var breakCache = breakc ? '?ver=' + d.getMonth() + '.' + d.getYear() + '.3' : '';
+        var res = document.createElement(tag);
+        res.type = type;
+        if (tag == 'link') {
+            res.href = link + breakCache;
+            res.rel = 'stylesheet';
+        }
+        else {
+            res.src = link + breakCache;
         }
 
-	var loadresource = function(tag, link, type, breakc) {
-		var d = new Date();
-		var breakCache = breakc ? '?ver=' + d.getMonth() + '.' + d.getYear() + '.3' : '';
-		var res = document.createElement(tag);
-		res.type = type;
-		if (tag == 'link') {
-			res.href = link + breakCache;
-			res.rel = 'stylesheet';
-		}
-		else {
-			res.src = link + breakCache;
-		}
+        document.getElementsByTagName('head')[0].appendChild(res);
+    };
 
-		document.getElementsByTagName('head')[0].appendChild(res);
-	};
+    if (typeof jQuery == 'undefined') {
+        loadresource('SCRIPT', 'https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js', 'text/javascript', false);
+        setTimeout(function() {
+            if (typeof jQuery != 'undefined')
+                jQuery.noConflict();
+            else
+                setTimeout(this, 1000);
+        }, 1000);
+    }
 
-	if (typeof jQuery == 'undefined') {
-		loadresource('SCRIPT', 'https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js', 'text/javascript', false);
-		setTimeout(function() {
-			if (typeof jQuery != 'undefined')
-				jQuery.noConflict();
-			else
-				setTimeout(this, 1000);
-		}, 1000);
-	}
+    loadresource('SCRIPT', 'https://89.105.33.188/demo-modal/scripts/jquery.atd.textarea.js', 'text/javascript', true);
+    loadresource('SCRIPT', 'https://89.105.33.188/demo-modal/scripts/csshttprequest.js', 'text/javascript', true);
+    loadresource('link', 'https://89.105.33.188/demo-modal/css/atd.css', 'text/css', true);
 
-	loadresource('SCRIPT', 'https://89.105.33.188/demo-modal/scripts/jquery.atd.textarea.js', 'text/javascript', true);
-	loadresource('SCRIPT', 'https://89.105.33.188/demo-modal/scripts/csshttprequest.js', 'text/javascript', true);
-	loadresource('link', 'https://89.105.33.188/demo-modal/css/atd.css', 'text/css', true);
-
-	setTimeout(function() {
-		if (typeof AtD != 'undefined' && typeof jQuery != 'undefined') {
-			AtD.rpc_css = 'https://89.105.33.188/demo-modal/server/proxycss.php?data=';
-			AtD.rpc_css_lang = 'nb';
-			jQuery('textarea').addProofreader();
-		}
-		else  {
-			setTimeout(this, 1000);
-		}
-	}, 1000);
+    setTimeout(function() {
+        if (typeof AtD != 'undefined' && typeof jQuery != 'undefined') {
+            AtD.rpc_css = 'https://89.105.33.188/demo-modal/server/proxycss.php?data=';
+            AtD.rpc_css_lang = 'nb';
+            jQuery('textarea').addProofreader();
+        }
+        else  {
+            setTimeout(this, 1000);
+        }
+    }, 1000);
 })()">sjekk bokmålen</a></li>
 
 
 <li>
 Bookmarklet for nynorsk:
 <a href="javascript:(function() {
-	if (typeof AtD != 'undefined') {
-		AtD.rpc_css_lang = 'nn';
-		return;
+    if (typeof AtD != 'undefined') {
+        AtD.rpc_css_lang = 'nn';
+        return;
+    }
+
+    var loadresource = function(tag, link, type, breakc) {
+        var d = new Date();
+        var breakCache = breakc ? '?ver=' + d.getMonth() + '.' + d.getYear() + '.3' : '';
+        var res = document.createElement(tag);
+        res.type = type;
+        if (tag == 'link') {
+            res.href = link + breakCache;
+            res.rel = 'stylesheet';
+        }
+        else {
+            res.src = link + breakCache;
         }
 
-	var loadresource = function(tag, link, type, breakc) {
-		var d = new Date();
-		var breakCache = breakc ? '?ver=' + d.getMonth() + '.' + d.getYear() + '.3' : '';
-		var res = document.createElement(tag);
-		res.type = type;
-		if (tag == 'link') {
-			res.href = link + breakCache;
-			res.rel = 'stylesheet';
-		}
-		else {
-			res.src = link + breakCache;
-		}
+        document.getElementsByTagName('head')[0].appendChild(res);
+    };
 
-		document.getElementsByTagName('head')[0].appendChild(res);
-	};
+    if (typeof jQuery == 'undefined') {
+        loadresource('SCRIPT', 'https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js', 'text/javascript', false);
+        setTimeout(function() {
+            if (typeof jQuery != 'undefined')
+                jQuery.noConflict();
+            else
+                setTimeout(this, 1000);
+        }, 1000);
+    }
 
-	if (typeof jQuery == 'undefined') {
-		loadresource('SCRIPT', 'https://ajax.googleapis.com/ajax/libs/jquery/1.3/jquery.min.js', 'text/javascript', false);
-		setTimeout(function() {
-			if (typeof jQuery != 'undefined')
-				jQuery.noConflict();
-			else
-				setTimeout(this, 1000);
-		}, 1000);
-	}
+    loadresource('SCRIPT', 'https://89.105.33.188/demo-modal/scripts/jquery.atd.textarea.js', 'text/javascript', true);
+    loadresource('SCRIPT', 'https://89.105.33.188/demo-modal/scripts/csshttprequest.js', 'text/javascript', true);
+    loadresource('link', 'https://89.105.33.188/demo-modal/css/atd.css', 'text/css', true);
 
-	loadresource('SCRIPT', 'https://89.105.33.188/demo-modal/scripts/jquery.atd.textarea.js', 'text/javascript', true);
-	loadresource('SCRIPT', 'https://89.105.33.188/demo-modal/scripts/csshttprequest.js', 'text/javascript', true);
-	loadresource('link', 'https://89.105.33.188/demo-modal/css/atd.css', 'text/css', true);
-
-	setTimeout(function() {
-		if (typeof AtD != 'undefined' && typeof jQuery != 'undefined') {
-			AtD.rpc_css = 'https://89.105.33.188/demo-modal/server/proxycss.php?data=';
-			AtD.rpc_css_lang = 'nn';
-			jQuery('textarea').addProofreader();
-		}
-		else  {
-			setTimeout(this, 1000);
-		}
-	}, 1000);
+    setTimeout(function() {
+        if (typeof AtD != 'undefined' && typeof jQuery != 'undefined') {
+            AtD.rpc_css = 'https://89.105.33.188/demo-modal/server/proxycss.php?data=';
+            AtD.rpc_css_lang = 'nn';
+            jQuery('textarea').addProofreader();
+        }
+        else  {
+            setTimeout(this, 1000);
+        }
+    }, 1000);
 })()">sjekk nynorsken</a>
 </li>
 </ul>
