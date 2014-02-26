@@ -1,4 +1,7 @@
 <?php
+$_REQUEST = array_merge($_GET, $_POST);
+require_once('/var/www-ssl/auth/basicauth.php');
+
 // After the Deadline Proxy Script
 // *phear*
 
@@ -53,7 +56,7 @@ function AtD_http_post($request, $host, $path, $port = 80)
 // So I'm so no more sad and
 // Ache yeah yeah
 
-$data = AtD_http_post($postText, "service.afterthedeadline.com", $url);
+$data = AtD_http_post($postText, "gamma.kaldera.no", $url);
 
 // I am a vampire and I am looking in the city
 // Pretty girls don't look at me

@@ -1,4 +1,6 @@
 <?php
+$_REQUEST = array_merge($_GET, $_POST);
+require_once('/var/www-ssl/auth/basicauth.php');
 /**
  * CSSHttpRequest PHP Encoder
  *
