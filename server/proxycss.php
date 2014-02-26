@@ -13,7 +13,7 @@ if (strcmp($API_KEY, '') != 0)
 }
 
 $url = '/checkDocument/';
-$postText .= '&lang=' . $lang;
+$postText .= '&lang=' . $language;
 
 /* this function directly from akismet.php by Matt Mullenweg.  *props* */
 function AtD_http_post($request, $host, $path, $port = 80) 
